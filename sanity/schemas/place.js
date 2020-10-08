@@ -1,12 +1,11 @@
-import React from "react"
-import { FaStore } from "react-icons/fa"
+import { FaStore as icon } from "react-icons/fa"
 
 export default {
   // Computed name
   name: "store",
   // Visible name
   title: "Stores",
-  icon: () => <FaStore />,
+  icon,
   type: "document",
   fields: [
     {
@@ -52,7 +51,7 @@ export default {
     {
       name: "fbLink",
       title: "Facebook",
-      type: "string",
+      type: "url",
     },
   ],
 }
