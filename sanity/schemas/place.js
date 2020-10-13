@@ -15,11 +15,6 @@ export default {
       description: "Name of the store/restaurant",
     },
     {
-      name: "description",
-      type: "string",
-      title: "Store Description",
-    },
-    {
       name: "slug",
       title: "Store Slug",
       type: "slug",
@@ -27,6 +22,11 @@ export default {
         source: "name",
         maxLenght: 100,
       },
+    },
+    {
+      name: "description",
+      type: "string",
+      title: "Store Description",
     },
     {
       name: "image",
@@ -37,16 +37,15 @@ export default {
       },
     },
     {
-      name: "category",
-      title: "Store Category",
-      type: "string",
-      options: {
-        list: [
-          { title: "Comida", value: "food" },
-          { title: "Cena", value: "home" },
-          { title: "Desayunos", value: "credit-card" },
-        ],
-      },
+      name: "categories",
+      title: "Store Categories",
+      type: "array",
+      of: [
+        {
+          type: "reference",
+          to: [{ type: "category" }],
+        },
+      ],
     },
     {
       name: "fbLink",

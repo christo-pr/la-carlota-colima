@@ -1,5 +1,30 @@
 import React from "react"
+import { graphql } from "gatsby"
 
-export default function Home() {
-  return <div>Hello world!</div>
+import { Nav } from "../components"
+
+export default function Home(props) {
+  const {
+    data: { categories },
+  } = props
+
+  return (
+    <>
+      <Nav categories={categories.nodes} />
+    </>
+  )
 }
+
+export const query = graphql`
+  query InitialData {
+    categories: allSanityCategory {
+      nodes {
+        id
+        name
+        slug {
+          current
+        }
+      }
+    }
+  }
+`
