@@ -1,14 +1,14 @@
 import React from "react"
-import "normalize.css"
 
-import { Container } from "../components"
+import { GlobalStyles, MainContainer } from "../styles"
 
 export default function Layout(props) {
   const { children } = props
 
   return (
-    <>
-      <Container>{children}</Container>
-    </>
+    <MainContainer>
+      <GlobalStyles />
+      {children}
+    </MainContainer>
   )
 }
