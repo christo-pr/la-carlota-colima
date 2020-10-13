@@ -1,22 +1,20 @@
 import React from "react"
-
-import { Sidebar } from "./Sidebar"
-
-const sidebarID = "offcanvas-overlay"
+import { Link } from "gatsby"
 
 export function Nav(props) {
+  const { categories } = props
+
   return (
     <>
-      <nav className="uk-navbar-container" data-uk-navbar>
-        <div className="uk-navbar-left">
-          <a
-            className="uk-navbar-toggle"
-            data-uk-toggle={`target: #${sidebarID}`}
-            data-uk-navbar-toggle-icon
-          ></a>
-        </div>
+      <nav>
+        <ul>
+          {categories.map(category => (
+            <li key={category.id}>
+              <Link to={category.slug.current}>{category.name}</Link>
+            </li>
+          ))}
+        </ul>
       </nav>
-      <Sidebar id={sidebarID} />
     </>
   )
 }

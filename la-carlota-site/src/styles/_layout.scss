@@ -1,0 +1,21 @@
+body {
+  background: url("../assets/img/background.jpg");
+  background-size: contain;
+  background-position: center;
+  min-height: 100vh;
+  padding: 0 3rem;
+  padding-top: 10vw;
+  font-family: "French Fries";
+
+  .main-container {
+    background: url("../assets/img/green-lines.svg");
+    background-size: contain;
+    background-position: center;
+    padding: 9px;
+
+    .content {
+      background: white;
+      padding: 1rem;
+    }
+  }
+}
