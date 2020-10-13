@@ -1,7 +1,5 @@
 import React from "react"
 import "normalize.css"
-// Custom styles
-import "../styles/main.scss"
 
 import { Container } from "../components"
 
