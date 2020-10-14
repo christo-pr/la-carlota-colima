@@ -6,8 +6,9 @@ import { Description } from "../styles"
 
 export default function Home(props) {
   const {
-    data: { categories },
+    data: { categories, stores },
   } = props
+  console.log("Home -> stores", stores)
 
   return (
     <>
@@ -33,6 +34,28 @@ export const query = graphql`
     categories: allSanityCategory {
       nodes {
         id
+        name
+        slug {
+          current
+        }
+      }
+    }
+
+    stores: allSanityStore {
+      nodes {
+        categories {
+          id
+        }
+        description
+        fbLink
+        id
+        image {
+          asset {
+            fluid {
+              ...GatsbySanityImageFluid
+            }
+          }
+        }
         name
         slug {
           current
