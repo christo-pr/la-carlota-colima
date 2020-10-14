@@ -1,4 +1,6 @@
 import styled, { createGlobalStyle } from "styled-components"
+import Img from "gatsby-image"
+import "normalize.css"
 
 import BackgroundImg from "../assets/img/Background.jpg"
 import GreenLines from "../assets/img/green-lines.svg"
@@ -95,6 +97,35 @@ export const GlobalStyles = createGlobalStyle`
     }
 `
 
+export const Image = styled(Img)``
+
+export const Button = styled.button`
+  background: var(--yellow);
+  border-style: none;
+  padding: 10px;
+  margin: 1rem 0;
+
+  &:focus {
+    outline: 0;
+  }
+
+  &:active {
+    box-shadow: none;
+    transform: scale(0.95);
+  }
+
+  &:hover {
+    a {
+      color: var(--red);
+    }
+  }
+
+  a {
+    text-decoration: none;
+    transition: 0s;
+  }
+`
+
 export const MainContainer = styled.div`
   align-items: center;
   background-image: url(${BackgroundImg});
@@ -105,32 +136,28 @@ export const MainContainer = styled.div`
   flex-direction: column;
   min-height: 100vh;
   overflow: hidden;
-
-  @media ${device.mobile} {
-    padding-top: 5rem;
-  }
-
-  @media ${device.laptop} {
-    padding-top: 10rem;
-  }
+  padding: 3rem 0;
 `
 
 export const Panel = styled.div`
-  min-width: 80vw;
+  max-width: 80vw;
   background-image: url(${GreenLines});
   background-position: center;
   background-size: contain;
   padding: 0.5rem;
+  overflow: auto;
 `
 
 export const Content = styled.div`
   background: white;
+  min-height: 100%;
+  height: 100%;
   padding: 1rem;
   text-align: center;
 `
 
 export const Description = styled.p`
-  width: 50%;
+  width: 80%;
   margin: 3rem auto;
 
   span {
@@ -183,5 +210,67 @@ export const Menu = styled.div`
         color: var(--yellow);
       }
     }
+  }
+`
+
+export const Grid = styled.div`
+  margin-top: 5rem;
+  display: grid;
+  gap: 2.5rem;
+  --columns: ${props => props.cols};
+  grid-template-columns: repeat(var(--columns), minmax(200px, 1fr));
+  grid-auto-rows: 350px;
+  padding: 0 10rem;
+
+  .grid-item {
+    text-align: center;
+    position: relative;
+
+    &:hover {
+      cursor: pointer;
+
+      img {
+        animation: hoverItem 0.3s ease-in-out;
+        animation-fill-mode: forwards;
+      }
+    }
+
+    img {
+      max-width: 100%;
+      max-height: 100%;
+      transition: 0.3s;
+    }
+
+    p {
+      top: 0;
+      transform: rotate(-2deg) translateY(-10px);
+      position: absolute;
+      width: 103%;
+      left: -5px;
+      margin: 0;
+      font-size: 2rem;
+      font-size: clamp(12px, 5vw, 20px);
+      z-index: 99;
+      background: var(--yellow);
+    }
+  }
+
+  @keyframes hoverItem {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1.1);
+    }
+  }
+`
+
+export const StyledFooter = styled.div`
+  font-size: 0.8em;
+  display: flex;
+  justify-content: space-between;
+
+  p {
+    margin-bottom: 0;
   }
 `

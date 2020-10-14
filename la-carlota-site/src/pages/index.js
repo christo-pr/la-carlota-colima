@@ -2,13 +2,17 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 
 import { Nav, Featured, Footer } from "../components"
-import { Description } from "../styles"
+import { Description, Button } from "../styles"
+import { randomList } from "../utils/random"
 
 export default function Home(props) {
   const {
-    data: { categories },
+    data: { categories, stores },
   } = props
 
+  const featuredStores = randomList(6, stores.nodes.length).map(
+    id => stores.nodes[id]
+  )
   return (
     <>
       <Nav categories={categories.nodes} />
@@ -22,7 +26,10 @@ export default function Home(props) {
         son meramente recomendaciones locales, si quieres que se agregue algun
         lugar o categoria, puedes registrarlo: <Link to="/register">Aqui</Link>
       </Description>
-      <Featured />
+      <Featured stores={featuredStores} />
+      <Button>
+        <Link to="/all">Ver todos los lugares!</Link>
+      </Button>
       <Footer />
     </>
   )
@@ -33,6 +40,28 @@ export const query = graphql`
     categories: allSanityCategory {
       nodes {
         id
+        name
+        slug {
+          current
+        }
+      }
+    }
+
+    stores: allSanityStore {
+      nodes {
+        categories {
+          id
+        }
+        description
+        fbLink
+        id
+        image {
+          asset {
+            fluid {
+              ...GatsbySanityImageFluid
+            }
+          }
+        }
         name
         slug {
           current
