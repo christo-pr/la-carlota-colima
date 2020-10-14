@@ -156,7 +156,8 @@ export const Content = styled.div`
   text-align: center;
 `
 
-export const Description = styled.p`
+export const Description = styled.div`
+  font-size: 0.9em;
   width: 80%;
   margin: 3rem auto;
 
@@ -273,4 +274,8 @@ export const StyledFooter = styled.div`
   p {
     margin-bottom: 0;
   }
+`
+
+export const StyledLogo = styled.div`
+  margin: 2rem 0;
 `
