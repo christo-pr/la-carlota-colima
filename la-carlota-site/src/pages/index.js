@@ -10,7 +10,7 @@ export default function Home(props) {
     data: { categories, stores },
   } = props
 
-  const featuredStores = randomList(5, stores.nodes.length).map(
+  const featuredStores = randomList(6, stores.nodes.length).map(
     id => stores.nodes[id]
   )
   return (

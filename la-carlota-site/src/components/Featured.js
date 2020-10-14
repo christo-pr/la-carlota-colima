@@ -1,17 +1,19 @@
 import React from "react"
 
-import { FeaturedStores, Image } from "../styles"
+import { Grid } from "../styles"
+import { Store } from "./Store"
 
 export function Featured(props) {
   const { stores } = props
+  console.log("Featured -> stores", stores)
 
   return (
-    <FeaturedStores>
+    <Grid cols={3}>
       {stores.map(st => (
-        <div key={st.id}>
-          <Image fluid={st.image.asset.fluid} />
+        <div key={st.id} className="grid-item">
+          <Store {...st} featured />
         </div>
       ))}
-    </FeaturedStores>
+    </Grid>
   )
 }
