@@ -1,4 +1,5 @@
 import styled, { createGlobalStyle } from "styled-components"
+import Img from "gatsby-image"
 
 import BackgroundImg from "../assets/img/Background.jpg"
 import GreenLines from "../assets/img/green-lines.svg"
@@ -95,6 +96,8 @@ export const GlobalStyles = createGlobalStyle`
     }
 `
 
+export const Image = styled(Img)``
+
 export const MainContainer = styled.div`
   align-items: center;
   background-image: url(${BackgroundImg});
@@ -184,4 +187,11 @@ export const Menu = styled.div`
       }
     }
   }
+`
+
+export const FeaturedStores = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  grid-auto-rows: auto;
 `

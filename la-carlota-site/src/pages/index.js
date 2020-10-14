@@ -3,13 +3,16 @@ import { graphql, Link } from "gatsby"
 
 import { Nav, Featured, Footer } from "../components"
 import { Description } from "../styles"
+import { randomList } from "../utils/random"
 
 export default function Home(props) {
   const {
     data: { categories, stores },
   } = props
-  console.log("Home -> stores", stores)
 
+  const featuredStores = randomList(5, stores.nodes.length).map(
+    id => stores.nodes[id]
+  )
   return (
     <>
       <Nav categories={categories.nodes} />
@@ -23,7 +26,7 @@ export default function Home(props) {
         son meramente recomendaciones locales, si quieres que se agregue algun
         lugar o categoria, puedes registrarlo: <Link to="/register">Aqui</Link>
       </Description>
-      <Featured />
+      <Featured stores={featuredStores} />
       <Footer />
     </>
   )
