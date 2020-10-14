@@ -99,6 +99,33 @@ export const GlobalStyles = createGlobalStyle`
 
 export const Image = styled(Img)``
 
+export const Button = styled.button`
+  background: var(--yellow);
+  border-style: none;
+  padding: 10px;
+  margin: 1rem 0;
+
+  &:focus {
+    outline: 0;
+  }
+
+  &:active {
+    box-shadow: none;
+    transform: scale(0.95);
+  }
+
+  &:hover {
+    a {
+      color: var(--red);
+    }
+  }
+
+  a {
+    text-decoration: none;
+    transition: 0s;
+  }
+`
+
 export const MainContainer = styled.div`
   align-items: center;
   background-image: url(${BackgroundImg});
@@ -235,5 +262,15 @@ export const Grid = styled.div`
     100% {
       transform: scale(1.1);
     }
+  }
+`
+
+export const StyledFooter = styled.div`
+  font-size: 0.8em;
+  display: flex;
+  justify-content: space-between;
+
+  p {
+    margin-bottom: 0;
   }
 `

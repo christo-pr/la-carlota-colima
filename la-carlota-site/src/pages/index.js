@@ -2,7 +2,7 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 
 import { Nav, Featured, Footer } from "../components"
-import { Description } from "../styles"
+import { Description, Button } from "../styles"
 import { randomList } from "../utils/random"
 
 export default function Home(props) {
@@ -27,6 +27,9 @@ export default function Home(props) {
         lugar o categoria, puedes registrarlo: <Link to="/register">Aqui</Link>
       </Description>
       <Featured stores={featuredStores} />
+      <Button>
+        <Link to="/all">Ver todos los lugares!</Link>
+      </Button>
       <Footer />
     </>
   )
