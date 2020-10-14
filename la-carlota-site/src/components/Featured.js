@@ -5,7 +5,6 @@ import { Store } from "./Store"
 
 export function Featured(props) {
   const { stores } = props
-  console.log("Featured -> stores", stores)
 
   return (
     <Grid cols={3}>

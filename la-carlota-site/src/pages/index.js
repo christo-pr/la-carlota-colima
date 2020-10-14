@@ -1,13 +1,13 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 
-import { Nav, Featured, Footer } from "../components"
+import { Nav, Featured, Footer, Logo } from "../components"
 import { Description, Button } from "../styles"
 import { randomList } from "../utils/random"
 
 export default function Home(props) {
   const {
-    data: { categories, stores },
+    data: { categories, stores, siteSettings },
   } = props
 
   const featuredStores = randomList(6, stores.nodes.length).map(
@@ -17,15 +17,12 @@ export default function Home(props) {
     <>
       <Nav categories={categories.nodes} />
       <hr />
-      <Description>
-        <span>La Carlota </span> es un sitio web en el que encontraras una lista
-        de los diferentes lugares que existen en Colima para comer, desayunar,
-        cenar o simplemente para cumplir un antojo.
-        <br />
-        <b>TODOS</b> los lugares registrados dentro de <span>La Carlota </span>{" "}
-        son meramente recomendaciones locales, si quieres que se agregue algun
-        lugar o categoria, puedes registrarlo: <Link to="/register">Aqui</Link>
-      </Description>
+      <Logo src={siteSettings.logo.asset.fixed} />
+      <Description
+        dangerouslySetInnerHTML={{
+          __html: siteSettings.siteCopy[0].children[0].text,
+        }}
+      />
       <Featured stores={featuredStores} />
       <Button>
         <Link to="/all">Ver todos los lugares!</Link>
@@ -65,6 +62,24 @@ export const query = graphql`
         name
         slug {
           current
+        }
+      }
+    }
+
+    siteSettings: sanitySiteSettings {
+      logo {
+        asset {
+          fluid {
+            ...GatsbySanityImageFluid
+          }
+          fixed(width: 250) {
+            ...GatsbySanityImageFixed
+          }
+        }
+      }
+      siteCopy {
+        children {
+          text
         }
       }
     }
