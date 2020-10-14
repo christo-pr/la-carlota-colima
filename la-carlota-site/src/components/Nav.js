@@ -1,12 +1,14 @@
 import React from "react"
 import { Link } from "gatsby"
 
+import { Menu } from "../styles"
+
 export function Nav(props) {
   const { categories } = props
 
   return (
     <>
-      <nav>
+      <Menu>
         <ul>
           {categories.map(category => (
             <li key={category.id}>
@@ -14,7 +16,7 @@ export function Nav(props) {
             </li>
           ))}
         </ul>
-      </nav>
+      </Menu>
     </>
   )
 }
