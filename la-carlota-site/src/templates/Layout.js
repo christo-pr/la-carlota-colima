@@ -1,6 +1,6 @@
 import React from "react"
 
-import { GlobalStyles, MainContainer } from "../styles"
+import { GlobalStyles, MainContainer, Panel, Content } from "../styles"
 
 export default function Layout(props) {
   const { children } = props
@@ -8,7 +8,9 @@ export default function Layout(props) {
   return (
     <MainContainer>
       <GlobalStyles />
-      {children}
+      <Panel>
+        <Content>{children}</Content>
+      </Panel>
     </MainContainer>
   )
 }
