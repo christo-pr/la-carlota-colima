@@ -36,7 +36,11 @@ export const query = graphql`
           current
         }
       }
-      description
+      description {
+        children {
+          text
+        }
+      }
       fbLink
       id
       image {

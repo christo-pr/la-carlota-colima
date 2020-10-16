@@ -10,6 +10,7 @@ exports.createPages = ({ graphql, actions }) => {
         nodes {
           id
           name
+          visible
           slug {
             current
           }
@@ -20,21 +21,28 @@ exports.createPages = ({ graphql, actions }) => {
     if (result.errors) {
       throw result.errors
     }
+    let created = 0
+    const total = result.data.stores.nodes.length
 
     // Create Store Pages
     result.data.stores.nodes.forEach(store => {
-      createPage({
-        path: `/lugares/${store.slug.current}`,
-        component: storeTemplate,
-        context: {
-          id: store.id,
-        },
-      })
-      console.log(
-        `Created page for ${store.name} at: /lugares/${store.slug.current}`
-      )
+      if (store.visible) {
+        created += 1
+        createPage({
+          path: `/lugares/${store.slug.current}`,
+          component: storeTemplate,
+          context: {
+            id: store.id,
+          },
+        })
+        console.log(
+          `Created page for ${store.name} at: /lugares/${store.slug.current}`
+        )
+      }
     })
+    console.log(`Pages created: ${created} / ${total}`)
 
     // TODO: Create category pages
+    created = 0
   })
 }
