@@ -8,18 +8,9 @@ export default function StoreTemplate(props) {
     data: { store, categories },
   } = props
 
-  const categoriesWithHome = [
-    {
-      id: "home-link",
-      slug: { current: "/" },
-      name: "Inicio",
-    },
-    ...categories.nodes,
-  ]
-
   return (
     <>
-      <Nav categories={categoriesWithHome} />
+      <Nav categories={categories.nodes} withHome />
       <hr />
       <SingleStore {...store} />
     </>

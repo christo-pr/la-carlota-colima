@@ -3,9 +3,9 @@ import React from "react"
 import { Image, StyledStore, CategoryList } from "../styles"
 
 export function SingleStore(props) {
-  const { categories, description, fbLink, id, image, name, featured } = props
+  const { categories, description, fbLink, id, image, name, isGrid } = props
 
-  return featured ? (
+  return isGrid ? (
     <>
       <p>{name}</p>
       <Image fluid={image.asset.fluid} />

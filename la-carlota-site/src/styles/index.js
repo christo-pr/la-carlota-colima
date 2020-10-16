@@ -241,7 +241,7 @@ export const Grid = styled.div`
   gap: 2.5rem;
   --columns: ${props => props.cols};
   grid-template-columns: repeat(var(--columns), minmax(200px, 1fr));
-  grid-auto-rows: 350px;
+  grid-auto-rows: ${props => props.rowSize || 350}px;
   padding: 0 10rem;
 
   .grid-item {
