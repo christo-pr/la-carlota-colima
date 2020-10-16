@@ -1332,16 +1332,6 @@
   version "2.0.1"
   resolved "https://registry.npmjs.org/@sanity/generate-help-url/-/generate-help-url-2.0.1.tgz#2ba4c8087bd1447737358a6b18ad6ea503252532"
 
-"@sanity/google-maps-input@^2.0.1":
-  version "2.0.4"
-  resolved "https://registry.npmjs.org/@sanity/google-maps-input/-/google-maps-input-2.0.4.tgz#6fab4cb0fdd6f5b8bd1b17335eec957cf8c71901"
-  dependencies:
-    "@sanity/field" "2.0.4"
-    "@sanity/react-hooks" "2.0.3"
-    "@sanity/types" "2.0.1"
-    classnames "^2.2.5"
-    rxjs "^6.5.3"
-
 "@sanity/image-url@^0.140.19":
   version "0.140.19"
   resolved "https://registry.npmjs.org/@sanity/image-url/-/image-url-0.140.19.tgz#6adfea7b7768a1708eba6bdcfe9eb0746d2bb1f9"
@@ -4230,7 +4220,7 @@ hoist-non-react-statics@^2.1.1, hoist-non-react-statics@^2.3.1:
   version "2.5.5"
   resolved "https://registry.npmjs.org/hoist-non-react-statics/-/hoist-non-react-statics-2.5.5.tgz#c5903cf409c0dfd908f388e619d86b9c1174cb47"
 
-hoist-non-react-statics@^3.0.0, hoist-non-react-statics@^3.3.0:
+hoist-non-react-statics@^3.0.0, hoist-non-react-statics@^3.3.0, hoist-non-react-statics@^3.3.2:
   version "3.3.2"
   resolved "https://registry.npmjs.org/hoist-non-react-statics/-/hoist-non-react-statics-3.3.2.tgz#ece0acaf71d62c2969c2ec59feff42a4b1a85b45"
   dependencies:
@@ -4939,6 +4929,10 @@ lcid@^1.0.0:
   resolved "https://registry.npmjs.org/lcid/-/lcid-1.0.0.tgz#308accafa0bc483a3867b4b6f2b9506251d1b835"
   dependencies:
     invert-kv "^1.0.0"
+
+leaflet@^1.6.0:
+  version "1.7.1"
+  resolved "https://registry.npmjs.org/leaflet/-/leaflet-1.7.1.tgz#10d684916edfe1bf41d688a3b97127c0322a2a19"
 
 leven@^2.1.0:
   version "2.1.0"
@@ -6781,6 +6775,15 @@ react-json-view@^1.19.1:
     react-lifecycles-compat "^3.0.4"
     react-textarea-autosize "^6.1.0"
 
+react-leaflet@^2.6.3:
+  version "2.7.0"
+  resolved "https://registry.npmjs.org/react-leaflet/-/react-leaflet-2.7.0.tgz#0e0e452a4903029f0bb564771eab8cf9db8e4517"
+  dependencies:
+    "@babel/runtime" "^7.9.2"
+    fast-deep-equal "^3.1.1"
+    hoist-non-react-statics "^3.3.2"
+    warning "^4.0.3"
+
 react-lifecycles-compat@^3.0.2, react-lifecycles-compat@^3.0.4:
   version "3.0.4"
   resolved "https://registry.npmjs.org/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
@@ -7214,6 +7217,14 @@ sanity-diff-patch@^1.0.9:
   resolved "https://registry.npmjs.org/sanity-diff-patch/-/sanity-diff-patch-1.0.9.tgz#fb1fa3b52c27d369878af57ba02fee779b3ca8bd"
   dependencies:
     diff-match-patch "^1.0.5"
+
+sanity-plugin-leaflet-input@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.npmjs.org/sanity-plugin-leaflet-input/-/sanity-plugin-leaflet-input-1.0.0.tgz#e620493e16c6752e318207d987d41bc0b7d9fac2"
+  dependencies:
+    leaflet "^1.6.0"
+    prop-types "^15.7.2"
+    react-leaflet "^2.6.3"
 
 sax@~1.2.4:
   version "1.2.4"
