@@ -46,11 +46,6 @@ export const query = graphql`
 
     stores: allSanityStore {
       nodes {
-        categories {
-          id
-        }
-        description
-        fbLink
         id
         image {
           asset {
@@ -69,9 +64,6 @@ export const query = graphql`
     siteSettings: sanitySiteSettings {
       logo {
         asset {
-          fluid {
-            ...GatsbySanityImageFluid
-          }
           fixed(width: 250) {
             ...GatsbySanityImageFixed
           }

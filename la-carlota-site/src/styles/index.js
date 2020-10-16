@@ -59,6 +59,7 @@ export const GlobalStyles = createGlobalStyle`
       --yellow: #ffc600;
       --white: #fff;
       --grey: #efefef;
+      --blue: #1275B3;
     }
 
     /* Utilities */
@@ -136,11 +137,13 @@ export const MainContainer = styled.div`
   flex-direction: column;
   min-height: 100vh;
   overflow: hidden;
-  padding: 3rem 0;
+  align-items: center;
+  justify-content: center;
 `
 
 export const Panel = styled.div`
-  max-width: 80vw;
+  max-width: 1350px;
+  min-width: 1350px;
   background-image: url(${GreenLines});
   background-position: center;
   background-size: contain;
@@ -163,6 +166,24 @@ export const Description = styled.div`
 
   span {
     border-bottom: 5px dotted var(--yellow);
+  }
+`
+
+export const CategoryList = styled.ul`
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-start;
+  font-size: 0.43em;
+  padding: 0;
+  margin: 0;
+
+  li {
+    letter-spacing: 3px;
+    background: var(--blue);
+    color: var(--white);
+    padding: 0.2rem;
+    transform: rotate(-10deg);
   }
 `
 
@@ -278,4 +299,17 @@ export const StyledFooter = styled.div`
 
 export const StyledLogo = styled.div`
   margin: 2rem 0;
+`
+
+export const StyledStore = styled.div`
+  display: flex;
+  gap: 3rem;
+  padding: 3rem 5rem;
+
+  .store-image {
+    border: 10px solid var(--yellow);
+    height: 400px;
+    transform: rotate(-1deg);
+    box-shadow: -2px 3px 6px var(--black);
+  }
 `
