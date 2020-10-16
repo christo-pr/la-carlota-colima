@@ -1,6 +1,5 @@
 import React from "react"
 
-import { Map } from "./Map"
 import { Image, StyledStore, CategoryList } from "../styles"
 
 export function SingleStore(props) {
@@ -29,7 +28,7 @@ export function SingleStore(props) {
               __html: description[0].children[0].text,
             }}
           ></div>
-          <Map />
+          {/* <Map /> // F */}
         </div>
       </StyledStore>
     </>
