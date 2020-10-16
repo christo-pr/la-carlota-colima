@@ -24,9 +24,24 @@ export default {
       },
     },
     {
+      name: "visible",
+      title: "Visible in Site",
+      type: "boolean",
+    },
+    {
       name: "description",
-      type: "string",
       title: "Store Description",
+      type: "array",
+      of: [
+        {
+          type: "block",
+        },
+      ],
+    },
+    {
+      name: "location",
+      title: "Store Location",
+      type: "geopoint",
     },
     {
       name: "image",
@@ -53,4 +68,7 @@ export default {
       type: "url",
     },
   ],
+  initialValue: {
+    visible: true,
+  },
 }
