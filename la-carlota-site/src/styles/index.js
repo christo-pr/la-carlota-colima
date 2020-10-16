@@ -313,3 +313,13 @@ export const StyledStore = styled.div`
     box-shadow: -2px 3px 6px var(--black);
   }
 `
+
+export const StyledMap = styled.div`
+  width: 700px;
+  height: 350px;
+  border: 2px solid var(--blue);
+  margin-top: 3rem;
+  margin-right: auto;
+  margin-left: auto;
+}
+`
