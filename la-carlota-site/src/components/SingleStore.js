@@ -28,7 +28,7 @@ export function SingleStore(props) {
               __html: description[0].children[0].text,
             }}
           ></div>
-          {/* <Map /> // F */}
+          {/* <Map /> // Feature for future */}
         </div>
       </StyledStore>
     </>
