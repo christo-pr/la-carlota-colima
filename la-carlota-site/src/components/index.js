@@ -1,5 +1,5 @@
 export * from "./Nav"
 export * from "./Footer"
 export * from "./Featured"
-export * from "./Store"
+export * from "./SingleStore"
 export * from "./Logo"
