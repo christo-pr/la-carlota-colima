@@ -25,7 +25,7 @@ export default function Home(props) {
       />
       <Featured stores={featuredStores} />
       <Button>
-        <Link to="/all">Ver todos los lugares!</Link>
+        <Link to="/lugares">Ver todos los lugares!</Link>
       </Button>
       <Footer />
     </>

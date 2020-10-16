@@ -244,6 +244,7 @@ export const Grid = styled.div`
   grid-auto-rows: ${props => props.rowSize || 350}px;
   padding: 0 10rem;
 
+  .grid-item-inline,
   .grid-item {
     text-align: center;
     position: relative;
@@ -265,15 +266,33 @@ export const Grid = styled.div`
 
     p {
       top: 0;
-      transform: rotate(-2deg) translateY(-10px);
       position: absolute;
-      width: 103%;
-      left: -5px;
+      padding: 3px 0;
       margin: 0;
-      font-size: 2rem;
-      font-size: clamp(12px, 5vw, 20px);
       z-index: 99;
       background: var(--yellow);
+    }
+  }
+
+  .grid-item {
+    p {
+      transform: rotate(-2deg) translateY(-10px);
+    }
+  }
+
+  .grid-item-inline {
+    &:nth-child(2n + 1) {
+      .store-image {
+        transform: rotate(1deg);
+      }
+      p {
+        transform: rotate(2deg) translateY(-10px);
+        right: 0;
+        left: 2px;
+      }
+    }
+    p {
+      transform: rotate(-2deg) translateY(-10px);
     }
   }
 
@@ -311,6 +330,38 @@ export const StyledStore = styled.div`
     height: 400px;
     transform: rotate(-1deg);
     box-shadow: -2px 3px 6px var(--black);
+  }
+`
+
+export const StyledStoreGrid = styled.div`
+  p {
+    width: 103%;
+    left: -5px;
+    font-size: clamp(12px, 5vw, 0.7em);
+  }
+`
+
+export const StyledStoreGridCategories = styled.div`
+  p {
+    width: 100%;
+    left: -1px;
+    font-size: 0.6em;
+  }
+
+  .store-image {
+    border: 10px solid var(--yellow);
+    transform: rotate(-1deg);
+    box-shadow: -2px 3px 6px var(--black);
+  }
+
+  ul {
+    position: absolute;
+    bottom: 20px;
+    left: 5px;
+
+    li {
+      transform: rotate(0deg);
+    }
   }
 `
 
