@@ -4,15 +4,22 @@ import { Link } from "gatsby"
 import { Menu } from "../styles"
 
 export function Nav(props) {
-  const { categories } = props
+  const { categories, withHome } = props
 
   return (
     <>
       <Menu>
         <ul>
+          {withHome && (
+            <li>
+              <Link to="/">Inicio</Link>
+            </li>
+          )}
           {categories.map(category => (
             <li key={category.id}>
-              <Link to={category.slug.current}>{category.name}</Link>
+              <Link to={`/categorias/${category.slug.current}`}>
+                {category.name}
+              </Link>
             </li>
           ))}
         </ul>

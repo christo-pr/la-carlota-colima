@@ -3,6 +3,7 @@ const path = require("path")
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
   const storeTemplate = path.resolve("./src/templates/store.js")
+  const categoryTemplate = path.resolve("./src/templates/category.js")
 
   return graphql(`
     query storesPagesQuery {
@@ -16,16 +17,26 @@ exports.createPages = ({ graphql, actions }) => {
           }
         }
       }
+      categories: allSanityCategory {
+        nodes {
+          id
+          name
+          slug {
+            current
+          }
+        }
+      }
     }
   `).then(result => {
     if (result.errors) {
       throw result.errors
     }
-    let created = 0
-    const total = result.data.stores.nodes.length
+    const { stores, categories } = result.data
+    let created = 0,
+      total = stores.nodes.length
 
     // Create Store Pages
-    result.data.stores.nodes.forEach(store => {
+    stores.nodes.forEach(store => {
       if (store.visible) {
         created += 1
         createPage({
@@ -36,13 +47,27 @@ exports.createPages = ({ graphql, actions }) => {
           },
         })
         console.log(
-          `Created page for ${store.name} at: /lugares/${store.slug.current}`
+          `Created page for store ${store.name} at: /lugares/${store.slug.current}`
         )
       }
     })
-    console.log(`Pages created: ${created} / ${total}`)
+    console.log(`Store Pages created: ${created} / ${total}`)
 
-    // TODO: Create category pages
-    created = 0
+    // Create category pages
+    total = categories.nodes.length
+
+    categories.nodes.forEach(category => {
+      createPage({
+        path: `/categorias/${category.slug.current}`,
+        component: categoryTemplate,
+        context: {
+          categoryID: category.id,
+        },
+      })
+      console.log(
+        `Created page for category ${category.name} at: /categorias/${category.slug.current}`
+      )
+    })
+    console.log(`Category Pages created: ${total} / ${total}`)
   })
 }
