@@ -5,28 +5,21 @@ import { Nav, SingleStore, Footer } from "../components"
 import { Grid } from "../styles"
 
 export default function CategoryTemplate(props) {
+  console.log("CategoryTemplate -> props", props)
   const { stores, categories } = props.data
-  let cols = 3,
-    rowSize = 350
-  const totalStores = stores.nodes.length
-
-  if (totalStores >= 5) {
-    cols = 4
-    rowSize = 250
-  }
 
   return (
     <>
       <Nav categories={categories.nodes} withHome />
       <hr />
-      <Grid cols={cols} rowSize={rowSize}>
+      <Grid cols={4} rowSize={250}>
         {stores.nodes.map(st => (
           <Link
             key={st.id}
-            className="grid-item"
+            className="grid-item-inline"
             to={`/lugares/${st.slug.current}`}
           >
-            <SingleStore {...st} isGrid />
+            <SingleStore {...st} isGrid withCategories />
           </Link>
         ))}
       </Grid>
@@ -36,10 +29,8 @@ export default function CategoryTemplate(props) {
 }
 
 export const query = graphql`
-  query CategoryPageQuery($categoryID: String!) {
-    stores: allSanityStore(
-      filter: { categories: { elemMatch: { id: { eq: $categoryID } } } }
-    ) {
+  query AllStores {
+    stores: allSanityStore {
       nodes {
         id
         image {
@@ -52,6 +43,13 @@ export const query = graphql`
         name
         slug {
           current
+        }
+        categories {
+          id
+          name
+          slug {
+            current
+          }
         }
       }
     }

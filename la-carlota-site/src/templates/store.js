@@ -1,7 +1,7 @@
 import { graphql } from "gatsby"
 import React from "react"
 
-import { SingleStore, Nav } from "../components"
+import { SingleStore, Nav, Footer } from "../components"
 
 export default function StoreTemplate(props) {
   const {
@@ -13,6 +13,7 @@ export default function StoreTemplate(props) {
       <Nav categories={categories.nodes} withHome />
       <hr />
       <SingleStore {...store} />
+      <Footer />
     </>
   )
 }

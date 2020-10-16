@@ -4,6 +4,7 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
   const storeTemplate = path.resolve("./src/templates/store.js")
   const categoryTemplate = path.resolve("./src/templates/category.js")
+  const allStoresTemplate = path.resolve("./src/templates/all.js")
 
   return graphql(`
     query storesPagesQuery {
@@ -69,5 +70,11 @@ exports.createPages = ({ graphql, actions }) => {
       )
     })
     console.log(`Category Pages created: ${total} / ${total}`)
+
+    // Create All Stores page
+    createPage({
+      path: `/lugares`,
+      component: allStoresTemplate,
+    })
   })
 }
