@@ -26,7 +26,7 @@ export default function CategoryTemplate(props) {
             className="grid-item"
             to={`/lugares/${st.slug.current}`}
           >
-            <SingleStore {...st} isGrid />
+            <SingleStore {...st} isGrid withCategories />
           </Link>
         ))}
       </Grid>
@@ -52,6 +52,13 @@ export const query = graphql`
         name
         slug {
           current
+        }
+        categories {
+          id
+          name
+          slug {
+            current
+          }
         }
       }
     }

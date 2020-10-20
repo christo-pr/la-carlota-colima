@@ -356,7 +356,7 @@ export const StyledStoreGridCategories = styled.div`
 
   ul {
     position: absolute;
-    bottom: 20px;
+    bottom: 23px;
     left: 5px;
 
     li {

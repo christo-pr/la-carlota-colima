@@ -58,6 +58,13 @@ export const query = graphql`
         slug {
           current
         }
+        categories {
+          id
+          name
+          slug {
+            current
+          }
+        }
       }
     }
 
