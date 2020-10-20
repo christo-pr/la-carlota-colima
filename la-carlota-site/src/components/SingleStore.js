@@ -1,4 +1,9 @@
 import React from "react"
+import {
+  FaFacebook as FbIcon,
+  FaExternalLinkAlt as ExternalIcon,
+} from "react-icons/fa"
+import { FcPhoneAndroid as PhoneIcon, FcShop as MapIcon } from "react-icons/fc"
 
 import {
   Image,
@@ -20,6 +25,7 @@ function StoreGridView(props) {
 }
 
 function StoreDetailView(props) {
+  console.log("StoreDetailView -> props", props)
   const { categories, description, fbLink, id, image, name } = props
 
   return (
@@ -40,6 +46,28 @@ function StoreDetailView(props) {
               __html: description[0].children[0].text,
             }}
           ></div>
+          <div className="store-info">
+            <div>
+              <FbIcon className="fb-icon" />
+              <span>
+                <a href={fbLink} target="_blank" rel="noreferrer">
+                  {name}
+                  &nbsp;
+                  <ExternalIcon size="15" />
+                </a>
+              </span>
+            </div>
+            <div>
+              <MapIcon />
+              <span>avenida Benito Juarez #785 28973 Colima, Mexico</span>
+              &nbsp;
+              <ExternalIcon size="15" />
+            </div>
+            <div>
+              <PhoneIcon />
+              <span>Phone</span>
+            </div>
+          </div>
           {/* <Map /> // Feature for future */}
         </div>
       </StyledStore>

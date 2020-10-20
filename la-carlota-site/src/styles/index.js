@@ -331,6 +331,24 @@ export const StyledStore = styled.div`
     transform: rotate(-1deg);
     box-shadow: -2px 3px 6px var(--black);
   }
+
+  .store-info {
+    margin-top: 1rem;
+    text-align: left;
+
+    > div {
+      margin-top: 1rem;
+    }
+
+    .fb-icon {
+      fill: #4267b2;
+    }
+
+    span {
+      font-size: 0.9em;
+      margin-left: 10px;
+    }
+  }
 `
 
 export const StyledStoreGrid = styled.div`

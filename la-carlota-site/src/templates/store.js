@@ -46,6 +46,10 @@ export const query = graphql`
       slug {
         current
       }
+      location {
+        lat
+        lng
+      }
     }
     categories: allSanityCategory {
       nodes {
