@@ -47,6 +47,11 @@ export default {
     {
       name: "location",
       title: "Store Location",
+      type: "string",
+    },
+    {
+      name: "mapLocation",
+      title: "Store Location Map",
       type: "geopoint",
     },
     {

@@ -43,10 +43,12 @@ export const query = graphql`
         }
       }
       name
+      phone
+      location
       slug {
         current
       }
-      location {
+      mapLocation {
         lat
         lng
       }

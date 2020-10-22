@@ -26,7 +26,23 @@ function StoreGridView(props) {
 
 function StoreDetailView(props) {
   console.log("StoreDetailView -> props", props)
-  const { categories, description, fbLink, id, image, name } = props
+  const {
+    categories,
+    description,
+    fbLink,
+    id,
+    image,
+    name,
+    phone,
+    location,
+    mapLocation,
+  } = props
+
+  const generateLocationLink = loc => {
+    const { lat, lng } = loc
+
+    return `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`
+  }
 
   return (
     <>
@@ -59,13 +75,19 @@ function StoreDetailView(props) {
             </div>
             <div>
               <MapIcon />
-              <span>avenida Benito Juarez #785 28973 Colima, Mexico</span>
+              <a
+                href={generateLocationLink(mapLocation)}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {location}
+              </a>
               &nbsp;
               <ExternalIcon size="15" />
             </div>
             <div>
               <PhoneIcon />
-              <span>Phone</span>
+              <a href={`tel:${phone}`}>{phone}</a>
             </div>
           </div>
           {/* <Map /> // Feature for future */}
