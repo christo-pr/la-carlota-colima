@@ -11,8 +11,8 @@ export function Footer(props) {
     <StyledFooter>
       <p>&copy; La Carlota.io - {new Date().getFullYear()} </p>
       {!isRegisterPage && (
-        <p style={{ display: "flex" }}>
-          <Link to="/registrar">
+        <p>
+          <Link to="/registrar" style={{ display: "flex" }}>
             <Icon />
             Registra un lugar!
           </Link>

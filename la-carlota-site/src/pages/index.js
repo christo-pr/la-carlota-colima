@@ -13,6 +13,11 @@ export default function Home(props) {
   const featuredStores = randomList(6, stores.nodes.length).map(
     id => stores.nodes[id]
   )
+
+  const getSiteHomeDescription = siteCopy => {
+    return siteCopy.map(copy => copy.children[0].text).join("<br />")
+  }
+
   return (
     <>
       <Nav categories={categories.nodes} />
@@ -20,7 +25,7 @@ export default function Home(props) {
       <Logo src={siteSettings.logo.asset.fixed} />
       <Description
         dangerouslySetInnerHTML={{
-          __html: siteSettings.siteCopy[0].children[0].text,
+          __html: getSiteHomeDescription(siteSettings.siteCopy),
         }}
       />
       <Featured stores={featuredStores} />
