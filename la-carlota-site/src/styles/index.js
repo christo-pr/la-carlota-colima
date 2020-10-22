@@ -412,5 +412,10 @@ export const RegisterForm = styled.form`
     &:active {
       outline: 0;
     }
+
+    // Honey pot
+    &:nth-child(2) {
+      display: none;
+    }
   }
 `
