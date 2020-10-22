@@ -43,8 +43,14 @@ export const query = graphql`
         }
       }
       name
+      phone
+      location
       slug {
         current
+      }
+      mapLocation {
+        lat
+        lng
       }
     }
     categories: allSanityCategory {

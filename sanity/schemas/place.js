@@ -39,8 +39,19 @@ export default {
       ],
     },
     {
+      name: "phone",
+      title: "Store Phone",
+      type: "string",
+      description: "Contact phone of the store",
+    },
+    {
       name: "location",
       title: "Store Location",
+      type: "string",
+    },
+    {
+      name: "mapLocation",
+      title: "Store Location Map",
       type: "geopoint",
     },
     {

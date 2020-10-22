@@ -1,4 +1,9 @@
 import React from "react"
+import {
+  FaFacebook as FbIcon,
+  FaExternalLinkAlt as ExternalIcon,
+} from "react-icons/fa"
+import { FcPhoneAndroid as PhoneIcon, FcShop as MapIcon } from "react-icons/fc"
 
 import {
   Image,
@@ -20,7 +25,24 @@ function StoreGridView(props) {
 }
 
 function StoreDetailView(props) {
-  const { categories, description, fbLink, id, image, name } = props
+  console.log("StoreDetailView -> props", props)
+  const {
+    categories,
+    description,
+    fbLink,
+    id,
+    image,
+    name,
+    phone,
+    location,
+    mapLocation,
+  } = props
+
+  const generateLocationLink = loc => {
+    const { lat, lng } = loc
+
+    return `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`
+  }
 
   return (
     <>
@@ -40,6 +62,34 @@ function StoreDetailView(props) {
               __html: description[0].children[0].text,
             }}
           ></div>
+          <div className="store-info">
+            <div>
+              <FbIcon className="fb-icon" />
+              <span>
+                <a href={fbLink} target="_blank" rel="noreferrer">
+                  {name}
+                  &nbsp;
+                  <ExternalIcon size="15" />
+                </a>
+              </span>
+            </div>
+            <div>
+              <MapIcon />
+              <a
+                href={generateLocationLink(mapLocation)}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {location}
+              </a>
+              &nbsp;
+              <ExternalIcon size="15" />
+            </div>
+            <div>
+              <PhoneIcon />
+              <a href={`tel:${phone}`}>{phone}</a>
+            </div>
+          </div>
           {/* <Map /> // Feature for future */}
         </div>
       </StyledStore>
