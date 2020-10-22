@@ -134,7 +134,6 @@ export const MainContainer = styled.div`
   background-image: url(${BackgroundImg});
   background-position: center;
   background-size: contain;
-  background-attachment: fixed;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
