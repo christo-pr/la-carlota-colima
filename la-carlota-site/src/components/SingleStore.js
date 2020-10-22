@@ -25,7 +25,6 @@ function StoreGridView(props) {
 }
 
 function StoreDetailView(props) {
-  console.log("StoreDetailView -> props", props)
   const {
     categories,
     description,
@@ -39,7 +38,7 @@ function StoreDetailView(props) {
   } = props
 
   const generateLocationLink = loc => {
-    const { lat, lng } = loc
+    const { lat, lng } = loc || {}
 
     return `https://www.google.com/maps/search/?api=1&query=${lat},${lng}`
   }

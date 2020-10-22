@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 
-import { Nav, Featured, Footer, Logo } from "../components"
+import { Nav, Featured, Footer, Logo, SEO } from "../components"
 import { Description, Button } from "../styles"
 import { randomList } from "../utils/random"
 
@@ -20,6 +20,7 @@ export default function Home(props) {
 
   return (
     <>
+      <SEO title="Inicio" />
       <Nav categories={categories.nodes} />
       <hr />
       <Logo src={siteSettings.logo.asset.fixed} />

@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 
-import { Nav, SingleStore, Footer } from "../components"
+import { Nav, SingleStore, Footer, SEO } from "../components"
 import { Grid } from "../styles"
 
 export default function CategoryTemplate(props) {
@@ -10,6 +10,7 @@ export default function CategoryTemplate(props) {
 
   return (
     <>
+      <SEO title="Conoce lugares" />
       <Nav categories={categories.nodes} withHome />
       <hr />
       <Grid cols={4} rowSize={250}>

@@ -15,6 +15,7 @@ module.exports = {
       "Cartera de locales Colimota - Restaurantes/Comida Rapida de Colima solo por recomendacion local.",
   },
   plugins: [
+    "gatsby-plugin-react-helmet",
     "gatsby-plugin-styled-components",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
