@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 
-import { Nav, Footer } from "../components/"
+import { Nav, Footer, SEO } from "../components/"
 import { RegisterForm, Button } from "../styles"
 
 export default function Register(props) {
@@ -11,6 +11,7 @@ export default function Register(props) {
 
   return (
     <>
+      <SEO title="Registra un lugar" />
       <Nav categories={categories.nodes} withHome />
       <hr />
       <RegisterForm
