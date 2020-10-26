@@ -1,22 +1,20 @@
 import React from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 
-import { Nav, Featured, Footer, Logo, SEO } from "../components"
-import { Description, Button } from "../styles"
-import { randomList } from "../utils/random"
+import {
+  Nav,
+  Featured,
+  Footer,
+  Logo,
+  SEO,
+  SiteDescription,
+  AllStoresBtn,
+} from "../components"
 
 export default function Home(props) {
   const {
     data: { categories, stores, siteSettings },
   } = props
-
-  const featuredStores = randomList(3, stores.nodes.length).map(
-    id => stores.nodes[id]
-  )
-
-  const getSiteHomeDescription = siteCopy => {
-    return siteCopy.map(copy => copy.children[0].text).join("<br />")
-  }
 
   return (
     <>
@@ -24,15 +22,9 @@ export default function Home(props) {
       <Nav categories={categories.nodes} />
       <hr />
       <Logo src={siteSettings.logo.asset.fixed} />
-      <Description
-        dangerouslySetInnerHTML={{
-          __html: getSiteHomeDescription(siteSettings.siteCopy),
-        }}
-      />
-      <Featured stores={featuredStores} />
-      <Link to="/lugares">
-        <Button>Ver todos los lugares!</Button>
-      </Link>
+      <SiteDescription siteCopy={siteSettings.siteCopy} />
+      <Featured stores={stores} />
+      <AllStoresBtn />
       <Footer />
     </>
   )

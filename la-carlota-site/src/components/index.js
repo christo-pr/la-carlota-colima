@@ -1,6 +1,9 @@
-export * from "./Nav"
-export * from "./Footer"
 export * from "./Featured"
 export * from "./SingleStore"
-export * from "./Logo"
 export * from "./SEO"
+export * from "./SiteDescription"
+
+// UI
+export * from "./ui/Nav"
+export * from "./ui/Footer"
+export * from "./ui/Logo"
