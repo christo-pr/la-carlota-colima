@@ -4,6 +4,7 @@ import "normalize.css"
 
 import BackgroundImg from "../assets/img/Background.jpg"
 import GreenLines from "../assets/img/green-lines.svg"
+import BackgroundPanel from "../assets/img/background-panel.png"
 import Stripes from "../assets/img/stripes.svg"
 import font from "../assets/fonts/frenchfries.woff"
 
@@ -53,10 +54,10 @@ export const GlobalStyles = createGlobalStyle`
 
     /* Variables */
     :root {
-      --red: #FF4949;
-      --green: #2C7731;
-      --black: #2E2E2E;
       --yellow: #ffc600;
+      --red: #FF0D0F;
+      --green: #CCC914;
+      --black: #2E2E2E;
       --white: #fff;
       --grey: #efefef;
       --blue: #1275B3;
@@ -140,12 +141,13 @@ export const MainContainer = styled.div`
   overflow: hidden;
   align-items: center;
   justify-content: center;
+  padding: 1rem 0;
 `
 
 export const Panel = styled.div`
   max-width: 1350px;
   min-width: 1350px;
-  background-image: url(${GreenLines});
+  background-image: url(${BackgroundPanel});
   background-position: center;
   background-size: contain;
   padding: 0.5rem;
