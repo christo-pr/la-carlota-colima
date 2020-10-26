@@ -3,7 +3,6 @@ import Img from "gatsby-image"
 import "normalize.css"
 
 import BackgroundImg from "../assets/img/Background.jpg"
-import GreenLines from "../assets/img/green-lines.svg"
 import BackgroundPanel from "../assets/img/background-panel.png"
 import Stripes from "../assets/img/stripes.svg"
 import font from "../assets/fonts/frenchfries.woff"

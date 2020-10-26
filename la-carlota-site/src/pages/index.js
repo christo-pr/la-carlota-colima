@@ -10,7 +10,7 @@ export default function Home(props) {
     data: { categories, stores, siteSettings },
   } = props
 
-  const featuredStores = randomList(6, stores.nodes.length).map(
+  const featuredStores = randomList(3, stores.nodes.length).map(
     id => stores.nodes[id]
   )
 
@@ -30,9 +30,9 @@ export default function Home(props) {
         }}
       />
       <Featured stores={featuredStores} />
-      <Button>
-        <Link to="/lugares">Ver todos los lugares!</Link>
-      </Button>
+      <Link to="/lugares">
+        <Button>Ver todos los lugares!</Button>
+      </Link>
       <Footer />
     </>
   )
