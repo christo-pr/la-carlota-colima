@@ -29,41 +29,12 @@ export const query = graphql`
   query InitialData {
     stores: allSanityStore {
       nodes {
-        id
-        image {
-          asset {
-            fluid {
-              ...GatsbySanityImageFluid
-            }
-          }
-        }
-        name
-        slug {
-          current
-        }
-        categories {
-          id
-          name
-          slug {
-            current
-          }
-        }
+        ...StoreGridFragment
       }
     }
 
     siteSettings: sanitySiteSettings {
-      logo {
-        asset {
-          fixed(width: 250) {
-            ...GatsbySanityImageFixed
-          }
-        }
-      }
-      siteCopy {
-        children {
-          text
-        }
-      }
+      ...SiteSettingFragment
     }
   }
 `

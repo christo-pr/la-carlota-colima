@@ -29,25 +29,7 @@ export const query = graphql`
   query AllStores {
     stores: allSanityStore {
       nodes {
-        id
-        image {
-          asset {
-            fluid {
-              ...GatsbySanityImageFluid
-            }
-          }
-        }
-        name
-        slug {
-          current
-        }
-        categories {
-          id
-          name
-          slug {
-            current
-          }
-        }
+        ...StoreGridFragment
       }
     }
   }

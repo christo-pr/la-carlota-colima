@@ -8,11 +8,7 @@ export function Nav(props) {
     query {
       categories: allSanityCategory {
         nodes {
-          id
-          name
-          slug {
-            current
-          }
+          ...CategoryFragment
         }
       }
     }

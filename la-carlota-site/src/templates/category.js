@@ -39,25 +39,7 @@ export const query = graphql`
       filter: { categories: { elemMatch: { id: { eq: $categoryID } } } }
     ) {
       nodes {
-        id
-        image {
-          asset {
-            fluid {
-              ...GatsbySanityImageFluid
-            }
-          }
-        }
-        name
-        slug {
-          current
-        }
-        categories {
-          id
-          name
-          slug {
-            current
-          }
-        }
+        ...StoreGridFragment
       }
     }
 
