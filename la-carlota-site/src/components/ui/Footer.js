@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import { MdAssignment as Icon } from "react-icons/md"
 
-import { StyledFooter } from "../styles"
+import { StyledFooter } from "../../styles"
 
 export function Footer(props) {
   const { isRegisterPage } = props

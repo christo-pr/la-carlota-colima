@@ -1,20 +1,17 @@
 import { graphql } from "gatsby"
 import React from "react"
 
-import { SingleStore, Nav, Footer, SEO } from "../components"
+import { SingleStore, SEO } from "../components"
 
 export default function StoreTemplate(props) {
   const {
-    data: { store, categories },
+    data: { store },
   } = props
 
   return (
     <>
       <SEO title={store.name} image={store.image.asset.fixed.src} />
-      <Nav categories={categories.nodes} withHome />
-      <hr />
       <SingleStore {...store} />
-      <Footer />
     </>
   )
 }
@@ -52,15 +49,6 @@ export const query = graphql`
       mapLocation {
         lat
         lng
-      }
-    }
-    categories: allSanityCategory {
-      nodes {
-        id
-        name
-        slug {
-          current
-        }
       }
     }
   }

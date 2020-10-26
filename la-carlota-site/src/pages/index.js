@@ -2,9 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 
 import {
-  Nav,
   Featured,
-  Footer,
   Logo,
   SEO,
   SiteDescription,
@@ -13,35 +11,22 @@ import {
 
 export default function Home(props) {
   const {
-    data: { categories, stores, siteSettings },
+    data: { stores, siteSettings },
   } = props
 
   return (
     <>
       <SEO title="Inicio" />
-      <Nav categories={categories.nodes} />
-      <hr />
       <Logo src={siteSettings.logo.asset.fixed} />
       <SiteDescription siteCopy={siteSettings.siteCopy} />
       <Featured stores={stores} />
       <AllStoresBtn />
-      <Footer />
     </>
   )
 }
 
 export const query = graphql`
   query InitialData {
-    categories: allSanityCategory {
-      nodes {
-        id
-        name
-        slug {
-          current
-        }
-      }
-    }
-
     stores: allSanityStore {
       nodes {
         id

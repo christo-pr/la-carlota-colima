@@ -1,18 +1,15 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 
-import { Nav, SingleStore, Footer, SEO } from "../components"
+import { SingleStore, SEO } from "../components"
 import { Grid } from "../styles"
 
 export default function CategoryTemplate(props) {
-  console.log("CategoryTemplate -> props", props)
-  const { stores, categories } = props.data
+  const { stores } = props.data
 
   return (
     <>
       <SEO title="Conoce lugares" />
-      <Nav categories={categories.nodes} withHome />
-      <hr />
       <Grid cols={4} rowSize={250}>
         {stores.nodes.map(st => (
           <Link
@@ -24,7 +21,6 @@ export default function CategoryTemplate(props) {
           </Link>
         ))}
       </Grid>
-      <Footer />
     </>
   )
 }
@@ -51,16 +47,6 @@ export const query = graphql`
           slug {
             current
           }
-        }
-      }
-    }
-
-    categories: allSanityCategory {
-      nodes {
-        id
-        name
-        slug {
-          current
         }
       }
     }

@@ -1,6 +1,8 @@
 import React from "react"
 
-import { GlobalStyles, MainContainer, Panel, Content } from "../styles"
+import { GlobalStyles, MainContainer, Panel, Content } from "../../styles"
+import { Nav } from "./Nav"
+import { Footer } from "./Footer"
 
 export default function Layout(props) {
   const { children } = props
@@ -9,7 +11,12 @@ export default function Layout(props) {
     <MainContainer>
       <GlobalStyles />
       <Panel>
-        <Content>{children}</Content>
+        <Content>
+          <Nav />
+          <hr />
+          {children}
+          <Footer />
+        </Content>
       </Panel>
     </MainContainer>
   )
