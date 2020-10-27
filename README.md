@@ -1,7 +1,5 @@
-![La carlota](./la-carlota-site/public/favicon.png)
-
 # La Carlota
-> Cartera de Local Colimota
+> Cartera de Locales Colimota
 
 
 El repo esta divido en 2:
@@ -14,7 +12,9 @@ Dentro de cada carpeta se encuentra todo lo necesario para correr la aplicacion.
 ### Development
 
 1.- Clona el repo
+
 2.- Instala deps (ndentro de cada carpeta `sanity`, `la-carlota-site`): `npm install`
+
 3.- Corre cada app.
 
 
