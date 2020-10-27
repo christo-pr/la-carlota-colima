@@ -21,8 +21,7 @@ export const SEO = props => {
       <html lang="es" />
       <title>{title}</title>
 
-      <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-      <link rel="alternate icon" href="/favicon.ico" />
+      <link rel="icon" type="image/png" href="/favicon.png" />
 
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta charSet="utf-8" />
