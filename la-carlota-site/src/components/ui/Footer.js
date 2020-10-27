@@ -2,13 +2,13 @@ import React from "react"
 import { Link } from "gatsby"
 import { MdAssignment as Icon } from "react-icons/md"
 
-import { StyledFooter } from "../../styles"
+import { AppFooter } from "../../styles"
 
 export function Footer(props) {
   const { isRegisterPage } = props
 
   return (
-    <StyledFooter>
+    <AppFooter>
       <p>&copy; La Carlota.io - {new Date().getFullYear()} </p>
       {!isRegisterPage && (
         <p>
@@ -18,6 +18,6 @@ export function Footer(props) {
           </Link>
         </p>
       )}
-    </StyledFooter>
+    </AppFooter>
   )
 }

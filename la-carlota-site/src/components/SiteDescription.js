@@ -1,6 +1,6 @@
 import React from "react"
 
-import { Description, Button } from "../styles"
+import { Description } from "../styles"
 import { parseSiteDescription } from "../utils/site"
 
 export function SiteDescription(props) {

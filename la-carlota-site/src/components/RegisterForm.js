@@ -31,7 +31,6 @@ export function RegisterForm(props) {
           type="text"
           placeholder="Facebook URL"
           value={url}
-          autoFocus
           onChange={e => setUrl(e.target.value)}
           disabled={loading}
           required

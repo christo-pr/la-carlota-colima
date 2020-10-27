@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react"
 import { AiOutlineCloseCircle as CloseIcon } from "react-icons/ai"
 
-import { StyledAlert } from "../../styles"
+import { AppAlert } from "../../styles"
 
 var alertTimeout
 
@@ -21,7 +21,7 @@ export function Alert(props) {
   }, [])
 
   return (
-    <StyledAlert type={type} show={showAlert}>
+    <AppAlert type={type} show={showAlert}>
       {message}
       <CloseIcon
         onClick={() => {
@@ -29,6 +29,6 @@ export function Alert(props) {
           clearTimeout(alertTimeout)
         }}
       />
-    </StyledAlert>
+    </AppAlert>
   )
 }
