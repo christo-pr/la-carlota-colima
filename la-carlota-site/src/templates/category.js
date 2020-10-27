@@ -25,7 +25,7 @@ export default function CategoryTemplate(props) {
             className="grid-item"
             to={`/lugares/${st.slug.current}`}
           >
-            <SingleStore {...st} isGrid withCategories />
+            <SingleStore {...st} isGrid />
           </Link>
         ))}
       </Grid>

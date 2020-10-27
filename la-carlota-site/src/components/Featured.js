@@ -20,7 +20,7 @@ export function Featured(props) {
           className="grid-item"
           to={`/lugares/${st.slug.current}`}
         >
-          <SingleStore {...st} isGrid withCategories />
+          <SingleStore {...st} isGrid />
         </Link>
       ))}
     </Grid>
