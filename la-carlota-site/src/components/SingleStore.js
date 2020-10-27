@@ -5,31 +5,13 @@ import {
 } from "react-icons/fa"
 import { FcPhoneAndroid as PhoneIcon, FcShop as MapIcon } from "react-icons/fc"
 
-import {
-  Image,
-  StyledStore,
-  StyledStoreGrid,
-  StyledStoreGridCategories,
-  CategoryList,
-} from "../styles"
-
-function StoreGridView(props) {
-  const { name, image } = props
-
-  return (
-    <StyledStoreGrid>
-      <p>{name}</p>
-      <Image fluid={image.asset.fluid} />
-    </StyledStoreGrid>
-  )
-}
+import { Image, StoreDetail, StoreGrid, CategoryList } from "../styles"
 
 function StoreDetailView(props) {
   const {
     categories,
     description,
     fbLink,
-    id,
     image,
     name,
     phone,
@@ -45,7 +27,7 @@ function StoreDetailView(props) {
 
   return (
     <>
-      <StyledStore>
+      <StoreDetail>
         <div className="store-image">
           <Image fixed={image.asset.fixed} />
         </div>
@@ -91,16 +73,16 @@ function StoreDetailView(props) {
           </div>
           {/* <Map /> // Feature for future */}
         </div>
-      </StyledStore>
+      </StoreDetail>
     </>
   )
 }
 
-function StoreGridCategoriesView(props) {
-  const { categories, id, image, name } = props
+function StoreGridView(props) {
+  const { categories, image, name } = props
 
   return (
-    <StyledStoreGridCategories>
+    <StoreGrid>
       <p>{name}</p>
       <div className="store-image">
         <Image fluid={image.asset.fluid} />
@@ -110,16 +92,14 @@ function StoreGridCategoriesView(props) {
           i < 2 ? <li key={cat.id}>{cat.name}</li> : null
         )}
       </CategoryList>
-    </StyledStoreGridCategories>
+    </StoreGrid>
   )
 }
 
 export function SingleStore(props) {
-  const { isGrid, withCategories } = props
+  const { isGrid } = props
 
   if (isGrid) {
-    if (withCategories) return <StoreGridCategoriesView {...props} />
-
     return <StoreGridView {...props} />
   }
 

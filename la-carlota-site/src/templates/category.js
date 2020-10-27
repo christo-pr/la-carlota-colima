@@ -1,11 +1,11 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 
-import { Nav, SingleStore, Footer, SEO } from "../components"
+import { SingleStore, SEO } from "../components"
 import { Grid } from "../styles"
 
 export default function CategoryTemplate(props) {
-  const { stores, categories, category } = props.data
+  const { stores, category } = props.data
   let cols = 3,
     rowSize = 350
   const totalStores = stores.nodes.length
@@ -18,8 +18,6 @@ export default function CategoryTemplate(props) {
   return (
     <>
       <SEO title={category.name} />
-      <Nav categories={categories.nodes} withHome />
-      <hr />
       <Grid cols={cols} rowSize={rowSize}>
         {stores.nodes.map(st => (
           <Link
@@ -27,11 +25,10 @@ export default function CategoryTemplate(props) {
             className="grid-item"
             to={`/lugares/${st.slug.current}`}
           >
-            <SingleStore {...st} isGrid withCategories />
+            <SingleStore {...st} isGrid />
           </Link>
         ))}
       </Grid>
-      <Footer />
     </>
   )
 }
@@ -42,40 +39,12 @@ export const query = graphql`
       filter: { categories: { elemMatch: { id: { eq: $categoryID } } } }
     ) {
       nodes {
-        id
-        image {
-          asset {
-            fluid {
-              ...GatsbySanityImageFluid
-            }
-          }
-        }
-        name
-        slug {
-          current
-        }
-        categories {
-          id
-          name
-          slug {
-            current
-          }
-        }
+        ...StoreGridFragment
       }
     }
 
     category: sanityCategory(id: { eq: $categoryID }) {
       name
-    }
-
-    categories: allSanityCategory {
-      nodes {
-        id
-        name
-        slug {
-          current
-        }
-      }
     }
   }
 `

@@ -38,19 +38,19 @@ exports.createPages = ({ graphql, actions }) => {
 
     // Create Store Pages
     stores.nodes.forEach(store => {
-      if (store.visible) {
-        created += 1
-        createPage({
-          path: `/lugares/${store.slug.current}`,
-          component: storeTemplate,
-          context: {
-            id: store.id,
-          },
-        })
-        console.log(
-          `Created page for store ${store.name} at: /lugares/${store.slug.current}`
-        )
-      }
+      if (!store.visible) return
+
+      created += 1
+      createPage({
+        path: `/lugares/${store.slug.current}`,
+        component: storeTemplate,
+        context: {
+          id: store.id,
+        },
+      })
+      console.log(
+        `Created page for store ${store.name} at: /lugares/${store.slug.current}`
+      )
     })
     console.log(`Store Pages created: ${created} / ${total}`)
 

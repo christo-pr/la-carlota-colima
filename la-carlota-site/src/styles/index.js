@@ -1,13 +1,10 @@
-import styled, { createGlobalStyle } from "styled-components"
-import Img from "gatsby-image"
+import { createGlobalStyle } from "styled-components"
 import "normalize.css"
 
-import BackgroundImg from "../assets/img/Background.jpg"
-import GreenLines from "../assets/img/green-lines.svg"
 import Stripes from "../assets/img/stripes.svg"
 import font from "../assets/fonts/frenchfries.woff"
 
-// Media querys
+// Media query device mapping
 export const device = {
   mobile: `(min-width: 320px)`,
   tablet: `(min-width: 768px)`,
@@ -16,11 +13,30 @@ export const device = {
   desktop: `(min-width: 2560px)`,
 }
 
+/**
+ * Global Styles
+ */
 export const GlobalStyles = createGlobalStyle`
     /* Typography */
     @font-face {
       font-family: FrenchFries;
       src: url(${font});
+    }
+
+    /* Variables */
+    :root {
+      --yellow: #ffc600;
+      --red: #FF1919;
+      --green: #00B333;
+      --black: #2E2E2E;
+      --white: #fff;
+      --grey: #efefef;
+      --blue: #1275B3;
+      --media-mobile: (min-width: 320px),
+      --media-tablet: (min-width: 768px),
+      --media-laptop: (min-width: 1024px),
+      --media-laptopL: (min-width: 1440px),
+      --media-desktop: (min-width: 2560px),
     }
 
     html {
@@ -49,17 +65,6 @@ export const GlobalStyles = createGlobalStyle`
       &:hover {
         color: var(--red);
       }
-    }
-
-    /* Variables */
-    :root {
-      --red: #FF4949;
-      --green: #2C7731;
-      --black: #2E2E2E;
-      --yellow: #ffc600;
-      --white: #fff;
-      --grey: #efefef;
-      --blue: #1275B3;
     }
 
     /* Utilities */
@@ -98,324 +103,21 @@ export const GlobalStyles = createGlobalStyle`
     }
 `
 
-export const Image = styled(Img)``
-
-export const Button = styled.button`
-  background: var(--yellow);
-  border-style: none;
-  padding: 10px;
-  margin: 1rem 0;
-
-  &:focus {
-    outline: 0;
-  }
-
-  &:active {
-    box-shadow: none;
-    transform: scale(0.95);
-  }
-
-  &:hover {
-    cursor: pointer;
-
-    a {
-      color: var(--red);
-    }
-  }
-
-  a {
-    text-decoration: none;
-    transition: 0s;
-  }
-`
-
-export const MainContainer = styled.div`
-  align-items: center;
-  background-image: url(${BackgroundImg});
-  background-position: center;
-  background-size: contain;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  overflow: hidden;
-  align-items: center;
-  justify-content: center;
-`
-
-export const Panel = styled.div`
-  max-width: 1350px;
-  min-width: 1350px;
-  background-image: url(${GreenLines});
-  background-position: center;
-  background-size: contain;
-  padding: 0.5rem;
-  overflow: auto;
-`
-
-export const Content = styled.div`
-  background: white;
-  min-height: 100%;
-  height: 100%;
-  padding: 1rem;
-  text-align: center;
-`
-
-export const Description = styled.div`
-  font-size: 0.9em;
-  width: 80%;
-  margin: 3rem auto;
-
-  span {
-    border-bottom: 5px dotted var(--yellow);
-  }
-`
-
-export const CategoryList = styled.ul`
-  list-style: none;
-  display: flex;
-  gap: 1rem;
-  justify-content: flex-start;
-  font-size: 0.43em;
-  padding: 0;
-  margin: 0;
-
-  li {
-    letter-spacing: 3px;
-    background: var(--blue);
-    color: var(--white);
-    padding: 0.2rem;
-    transform: rotate(-10deg);
-  }
-`
-
-export const Menu = styled.div`
-  ul {
-    display: flex;
-    justify-content: space-around;
-    list-style: none;
-
-    @media ${device.mobile} {
-      flex-direction: column;
-    }
-
-    @media ${device.laptop} {
-      flex-direction: row;
-    }
-
-    li {
-      --rotate: -2deg;
-      transform: rotate(var(--rotate));
-      &:nth-child(1) {
-        --rotate: 1deg;
-      }
-      &:nth-child(2) {
-        --rotate: -2.5deg;
-      }
-      &:nth-child(4) {
-        --rotate: 2.5deg;
-      }
-      &:hover {
-        --rotate: 3deg;
-      }
-    }
-
-    a {
-      text-decoration: none;
-      color: var(--black);
-
-      &[aria-current="page"] {
-        color: var(--yellow);
-        text-decoration: underline;
-      }
-
-      &:hover {
-        text-decoration: underline;
-        color: var(--yellow);
-      }
-    }
-  }
-`
-
-export const Grid = styled.div`
-  margin-top: 5rem;
-  display: grid;
-  gap: 2.5rem;
-  --columns: ${props => props.cols};
-  grid-template-columns: repeat(var(--columns), minmax(200px, 1fr));
-  grid-auto-rows: ${props => props.rowSize || 350}px;
-  padding: 0 10rem;
-
-  .grid-item-inline,
-  .grid-item {
-    text-align: center;
-    position: relative;
-
-    &:hover {
-      cursor: pointer;
-
-      img {
-        animation: hoverItem 0.3s ease-in-out;
-        animation-fill-mode: forwards;
-      }
-    }
-
-    img {
-      max-width: 100%;
-      max-height: 100%;
-      transition: 0.3s;
-    }
-
-    p {
-      top: 0;
-      position: absolute;
-      padding: 3px 0;
-      margin: 0;
-      z-index: 99;
-      background: var(--yellow);
-    }
-  }
-
-  .grid-item {
-    p {
-      transform: rotate(-2deg) translateY(-10px);
-    }
-  }
-
-  .grid-item-inline {
-    &:nth-child(2n + 1) {
-      .store-image {
-        transform: rotate(1deg);
-      }
-      p {
-        transform: rotate(2deg) translateY(-10px);
-        right: 0;
-        left: 2px;
-      }
-    }
-    p {
-      transform: rotate(-2deg) translateY(-10px);
-    }
-  }
-
-  @keyframes hoverItem {
-    0% {
-      transform: scale(1);
-    }
-    100% {
-      transform: scale(1.1);
-    }
-  }
-`
-
-export const StyledFooter = styled.div`
-  font-size: 0.8em;
-  display: flex;
-  justify-content: space-between;
-
-  p {
-    margin-bottom: 0;
-  }
-`
-
-export const StyledLogo = styled.div`
-  margin: 2rem 0;
-`
-
-export const StyledStore = styled.div`
-  display: flex;
-  gap: 3rem;
-  padding: 3rem 5rem;
-
-  .store-image {
-    border: 10px solid var(--yellow);
-    height: 400px;
-    transform: rotate(-1deg);
-    box-shadow: -2px 3px 6px var(--black);
-  }
-
-  .store-info {
-    margin-top: 1rem;
-    text-align: left;
-
-    > div {
-      margin-top: 1rem;
-    }
-
-    .fb-icon {
-      fill: #4267b2;
-    }
-
-    span {
-      font-size: 0.9em;
-      margin-left: 10px;
-    }
-  }
-`
-
-export const StyledStoreGrid = styled.div`
-  p {
-    width: 103%;
-    left: -5px;
-    font-size: clamp(12px, 5vw, 0.7em);
-  }
-`
-
-export const StyledStoreGridCategories = styled.div`
-  p {
-    width: 100%;
-    left: -1px;
-    font-size: 0.6em;
-  }
-
-  .store-image {
-    border: 10px solid var(--yellow);
-    transform: rotate(-1deg);
-    box-shadow: -2px 3px 6px var(--black);
-  }
-
-  ul {
-    position: absolute;
-    bottom: 23px;
-    left: 5px;
-
-    li {
-      transform: rotate(0deg);
-    }
-  }
-`
-
-export const StyledMap = styled.div`
-  width: 700px;
-  height: 350px;
-  border: 2px solid var(--blue);
-  margin-top: 3rem;
-  margin-right: auto;
-  margin-left: auto;
-}
-`
-
-export const RegisterForm = styled.form`
-  padding: 0 10rem;
-
-  span {
-    border-bottom: 5px dotted var(--yellow);
-  }
-
-  input {
-    border: 4px solid var(--black);
-    border-radius: 5px;
-    padding: 10px;
-    box-shadow: 2px 2px 0px var(--yellow);
-
-    &:hover,
-    &:focus,
-    &:active {
-      outline: 0;
-    }
-
-    // Honey pot
-    &:nth-child(2) {
-      display: none;
-    }
-  }
-`
+/**
+ * Other components
+ */
+export * from "./AppAlert"
+export * from "./AppFooter"
+export * from "./AppLogo"
+export * from "./Button"
+export * from "./CategoryList"
+export * from "./Container"
+export * from "./Content"
+export * from "./Description"
+export * from "./Form"
+export * from "./Grid"
+export * from "./Image"
+export * from "./Loading"
+export * from "./Menu"
+export * from "./Panel"
+export * from "./StoreDetail"

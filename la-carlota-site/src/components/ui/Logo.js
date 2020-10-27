@@ -1,12 +1,12 @@
 import React from "react"
 
-import { Image, StyledLogo } from "../styles"
+import { Image, AppLogo } from "../../styles"
 
 export function Logo(props) {
   const { src } = props
   return (
-    <StyledLogo>
+    <AppLogo>
       <Image fixed={src} />
-    </StyledLogo>
+    </AppLogo>
   )
 }
