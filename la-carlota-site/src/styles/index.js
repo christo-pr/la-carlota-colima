@@ -54,8 +54,8 @@ export const GlobalStyles = createGlobalStyle`
     /* Variables */
     :root {
       --yellow: #ffc600;
-      --red: #FF0D0F;
-      --green: #CCC914;
+      --red: #FF1919;
+      --green: #00B333;
       --black: #2E2E2E;
       --white: #fff;
       --grey: #efefef;
@@ -103,8 +103,10 @@ export const Image = styled(Img)``
 export const Button = styled.button`
   background: var(--yellow);
   border-style: none;
-  padding: 10px;
+  padding: 0.5rem;
   margin: 1rem 0;
+  min-width: 9rem;
+  min-height: 3rem;
 
   &:focus {
     outline: 0;
@@ -395,7 +397,7 @@ export const StyledMap = styled.div`
 }
 `
 
-export const RegisterForm = styled.form`
+export const Form = styled.form`
   padding: 0 10rem;
 
   span {
@@ -414,9 +416,58 @@ export const RegisterForm = styled.form`
       outline: 0;
     }
 
+    &:disabled {
+      background: var(--grey);
+    }
+
     // Honey pot
     &:nth-child(2) {
       display: none;
+    }
+  }
+`
+
+export const Loading = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:after {
+    content: " ";
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    border: 6px solid var(--black);
+    border-color: var(--black) transparent var(--black) transparent;
+    animation: loading 1.2s linear infinite;
+  }
+
+  @keyframes loading {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+`
+
+export const StyledAlert = styled.div`
+  display: ${props => (props.show ? "flex" : "none")};
+  width: 100%;
+  justify-content: space-between;
+  background: ${props =>
+    props.type === "success" ? "var(--green)" : "var(--red)"};
+  color: white;
+  padding: 0.5rem 0 0.5rem 0.5rem;
+  font-size: 0.6em;
+
+  svg {
+    margin-right: 1rem;
+
+    &:hover {
+      cursor: pointer;
     }
   }
 `

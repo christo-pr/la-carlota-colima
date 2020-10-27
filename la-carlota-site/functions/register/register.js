@@ -25,7 +25,7 @@ exports.handler = async function (event) {
   if (event.httpMethod.toUpperCase() !== "POST") {
     return {
       statusCode: 400,
-      body: JSON.stringify({ success: false, message: "METHOD_NOT_ALLOWED" }),
+      body: JSON.stringify({ type: "error", message: "METHOD_NOT_ALLOWED" }),
     }
   }
 
@@ -35,7 +35,10 @@ exports.handler = async function (event) {
     if (body.name || !body.url) {
       return {
         statusCode: 400,
-        body: JSON.stringify({ success: false, message: "BAD_REQUEST" }),
+        body: JSON.stringify({
+          type: "error",
+          message: "Ups! Hubo un problema, intenta de nuevo [CODE: 3312]",
+        }),
       }
     }
 
@@ -50,12 +53,15 @@ exports.handler = async function (event) {
 
     return {
       statusCode: 200,
-      body: JSON.stringify({ success: true, message: "OK" }),
+      body: JSON.stringify({
+        type: "success",
+        message: "Gracias por contribuir a la Carlota!",
+      }),
     }
   } catch (error) {
     return {
       statusCode: 400,
-      body: JSON.stringify({ success: false, message: "ERROR" }),
+      body: JSON.stringify({ type: "error", message: "Error desconocido!" }),
     }
   }
 }
