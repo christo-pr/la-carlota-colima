@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-import MainBackgroundImg from "../assets/img/Background.jpg"
+import MainBackgroundImg from "../assets/img/background.jpg"
 
 /**
  * Main app container
