@@ -51,3 +51,18 @@ npm run netlify
 ```
 
 Este comando internamente corre el build de gatsby, pero tambien levanta las lambda de manera local. Despues de este comando vas a tener tu aplicacion corriendo en otro puerto en lugar del `8000`, ahora seria `http://localhost:8888` y las funciones lambda corren en `http://localhost:8888/.netlify/functions`
+
+
+### Deploy
+
+Para hacer el deploy de sanity, lo unico que tenemos que correr es:
+
+```
+npm run deploy
+```
+
+Este comando va a deployar automaticamente a sanity.io, el studio que tenemos corriendo en nuestro local
+> Dentro del archivo `sanity.json` se encuentran las configuraciones para el dataset a usar, entre otros.
+
+
+Para el deploy de la app de gatsby, lo unico que tenemos que hacer es abrir un PR apuntando a `master` y al momento de ser mergueado, el CI va a correr un deploy.

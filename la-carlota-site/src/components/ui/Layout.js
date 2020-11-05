@@ -6,7 +6,6 @@ import { Footer } from "./Footer"
 
 export default function Layout(props) {
   const { children, path } = props
-  console.log("Layout -> path", path)
 
   return (
     <Container>
