@@ -13,7 +13,7 @@ export function Featured(props) {
   )
 
   return (
-    <Grid cols={3}>
+    <Grid>
       {featuredStores.map(st => (
         <Link
           key={st.id}

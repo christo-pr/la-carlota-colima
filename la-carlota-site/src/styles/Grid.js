@@ -7,9 +7,9 @@ export const Grid = styled.div`
   margin-top: 5rem;
   display: grid;
   gap: 2.5rem;
-  --columns: ${props => props.cols};
+  --columns: 3;
   grid-template-columns: repeat(var(--columns), minmax(200px, 1fr));
-  grid-auto-rows: ${props => props.rowSize || 350}px;
+  grid-auto-rows: 350px;
   padding: 0 10rem;
 
   .grid-item-inline,

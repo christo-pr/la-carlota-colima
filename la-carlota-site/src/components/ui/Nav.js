@@ -1,4 +1,5 @@
 import React from "react"
+import { FaHome as HomeIcon } from "react-icons/fa"
 import { graphql, Link, useStaticQuery } from "gatsby"
 
 import { Menu } from "../../styles"
@@ -21,7 +22,9 @@ export function Nav(props) {
         <ul>
           {withHomeLink && (
             <li>
-              <Link to="/">Inicio</Link>
+              <Link to="/">
+                <HomeIcon />
+              </Link>
             </li>
           )}
           {categories.nodes.map(category => (

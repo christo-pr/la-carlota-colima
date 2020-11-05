@@ -6,19 +6,11 @@ import { Grid } from "../styles"
 
 export default function CategoryTemplate(props) {
   const { stores, category } = props.data
-  let cols = 3,
-    rowSize = 350
-  const totalStores = stores.nodes.length
-
-  if (totalStores >= 5) {
-    cols = 4
-    rowSize = 250
-  }
 
   return (
     <>
       <SEO title={category.name} />
-      <Grid cols={cols} rowSize={rowSize}>
+      <Grid>
         {stores.nodes.map(st => (
           <Link
             key={st.id}

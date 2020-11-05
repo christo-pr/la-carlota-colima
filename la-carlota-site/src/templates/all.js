@@ -10,7 +10,7 @@ export default function CategoryTemplate(props) {
   return (
     <>
       <SEO title="Conoce lugares" />
-      <Grid cols={4} rowSize={250}>
+      <Grid>
         {stores.nodes.map(st => (
           <Link
             key={st.id}

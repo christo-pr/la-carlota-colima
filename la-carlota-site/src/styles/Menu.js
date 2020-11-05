@@ -7,6 +7,7 @@ export const Menu = styled.div`
   ul {
     display: flex;
     justify-content: space-around;
+    align-items: center;
     list-style: none;
 
     @media var(--media-mobile) {
@@ -20,6 +21,19 @@ export const Menu = styled.div`
     li {
       --rotate: -2deg;
       transform: rotate(var(--rotate));
+      padding: 0 10px;
+
+      &::before {
+        content: "";
+        position: absolute;
+        height: 150%;
+        width: 2px;
+        background: var(--yellow);
+        right: 0px;
+        top: -10px;
+        transform: rotate(-2deg) !important;
+      }
+
       &:nth-child(1) {
         --rotate: 1deg;
       }
@@ -27,10 +41,15 @@ export const Menu = styled.div`
         --rotate: -2.5deg;
       }
       &:nth-child(4) {
-        --rotate: 2.5deg;
+        --rotate: 1.5deg;
       }
       &:hover {
-        --rotate: 3deg;
+        --rotate: 4deg;
+      }
+      &:last-child {
+        &::before {
+          background: unset;
+        }
       }
     }
 

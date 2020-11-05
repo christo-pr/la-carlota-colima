@@ -85,7 +85,7 @@ function StoreGridView(props) {
     <StoreGrid>
       <p>{name}</p>
       <div className="store-image">
-        <Image fluid={image.asset.fluid} />
+        <Image grid fluid={image.asset.fluid} />
       </div>
       <CategoryList>
         {categories.map((cat, i) =>
