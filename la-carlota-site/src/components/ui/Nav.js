@@ -1,11 +1,15 @@
-import React from "react"
-import { FaHome as HomeIcon } from "react-icons/fa"
+import React, { useState } from "react"
+import {
+  FaHome as HomeIcon,
+  FaEllipsisV as MobileMenuIcon,
+} from "react-icons/fa"
 import { graphql, Link, useStaticQuery } from "gatsby"
 
 import { Menu } from "../../styles"
 
 export function Nav(props) {
   const { withHomeLink } = props
+  const [mobileOpenMenu, setMobileOpenMenu] = useState(false)
   const { categories } = useStaticQuery(graphql`
     query {
       categories: allSanityCategory {
@@ -18,7 +22,13 @@ export function Nav(props) {
 
   return (
     <>
-      <Menu>
+      <Menu openMenu={mobileOpenMenu}>
+        <div
+          className="menu-mobile"
+          onClick={() => setMobileOpenMenu(old => !old)}
+        >
+          <MobileMenuIcon />
+        </div>
         <ul>
           {withHomeLink && (
             <li>

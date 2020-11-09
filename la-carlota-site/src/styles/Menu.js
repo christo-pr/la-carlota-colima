@@ -6,32 +6,54 @@ import { laptop } from "./Breakpoints"
  * Site Top Menu
  */
 export const Menu = styled.div`
+  text-align: left;
+
+  .menu-mobile {
+    padding: 0 1rem;
+  }
+
+  ${laptop(`
+    .menu-mobile {
+      display: none;
+    }
+  `)}
+
   ul {
-    display: flex;
+    display: ${props => (props.openMenu ? "flex" : "none")};
     flex-direction: column;
     justify-content: space-around;
-    align-items: center;
+    align-items: flex-start;
     list-style: none;
 
     ${laptop(`
+      display: flex;
       flex-direction: row;
+      align-items: center;
     `)}
 
     li {
       --rotate: -2deg;
       transform: rotate(var(--rotate));
-      padding: 0 10px;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--yellow);
 
-      &::before {
-        content: "";
-        position: absolute;
-        height: 150%;
-        width: 2px;
-        background: var(--yellow);
-        right: 0px;
-        top: -10px;
-        transform: rotate(-2deg) !important;
-      }
+      ${laptop(
+        `
+        padding: 0 10px;
+        border-bottom: 0;
+
+        &::before {
+          content: "";
+          position: absolute;
+          height: 150%;
+          width: 2px;
+          background: var(--yellow);
+          right: 0px;
+          top: -10px;
+          transform: rotate(-2deg) !important;
+        }
+        `
+      )}
 
       &:nth-child(1) {
         --rotate: 1deg;
