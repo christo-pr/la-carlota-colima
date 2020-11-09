@@ -10,7 +10,7 @@ export default function StoreTemplate(props) {
 
   return (
     <>
-      <SEO title={store.name} image={store.image.asset.fixed.src} />
+      <SEO title={store.name} image={store.image.asset.fluid.src} />
       <SingleStore {...store} />
     </>
   )

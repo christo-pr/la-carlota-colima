@@ -9,7 +9,7 @@ export const Content = styled.div`
   background: white;
   min-height: 100%;
   height: 100%;
-  padding: 1rem 0;
+  padding: 1rem;
   text-align: center;
 
   hr {
@@ -17,6 +17,7 @@ export const Content = styled.div`
   }
 
   ${laptop(`
+
     hr {
       display: block;
     }

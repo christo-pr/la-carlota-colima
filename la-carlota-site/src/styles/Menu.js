@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-import { laptop } from "./Breakpoints"
+import { laptop, desktop } from "./Breakpoints"
 
 /**
  * Site Top Menu
@@ -54,6 +54,12 @@ export const Menu = styled.div`
         }
         `
       )}
+
+      ${desktop(`
+        &::before {
+          right: -5px;
+        }
+      `)}
 
       &:nth-child(1) {
         --rotate: 1deg;

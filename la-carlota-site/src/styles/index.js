@@ -31,7 +31,7 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     body {
-      font-size: 2rem;
+      font-size: calc(22px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
     }
 
     p, li {
