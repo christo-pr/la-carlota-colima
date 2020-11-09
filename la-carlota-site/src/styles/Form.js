@@ -1,10 +1,16 @@
 import styled from "styled-components"
 
+import { tablet } from "./Breakpoints"
+
 /**
  * App Form
  */
 export const Form = styled.form`
-  padding: 0 10rem;
+  padding: 0 1rem;
+
+  ${tablet(`
+      padding: 0 10rem;
+    `)}
 
   span {
     border-bottom: 5px dotted var(--yellow);
@@ -15,6 +21,7 @@ export const Form = styled.form`
     border-radius: 5px;
     padding: 10px;
     box-shadow: 2px 2px 0px var(--yellow);
+    max-width: 90%;
 
     &:hover,
     &:focus,

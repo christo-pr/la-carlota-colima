@@ -1,19 +1,33 @@
 import styled from "styled-components"
 
+import { laptop } from "./Breakpoints"
+
 /**
  * Store Detail view
  */
 export const StoreDetail = styled.div`
   display: flex;
+  flex-direction: column;
   gap: 3rem;
-  padding: 3rem 5rem;
+  padding: 3rem;
 
   .store-image {
     border: 10px solid var(--yellow);
-    height: 400px;
+    width: 100%;
+    max-width: 100%;
     transform: rotate(-1deg);
     box-shadow: -2px 3px 6px var(--black);
   }
+
+  ${laptop(`
+    padding: 3rem 5rem;
+    flex-direction: row;
+
+    .store-image {
+      width: 50%;
+      height: 100%;
+    }
+  `)}
 
   .store-info {
     margin-top: 1rem;

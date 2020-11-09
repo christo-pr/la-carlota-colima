@@ -29,7 +29,7 @@ function StoreDetailView(props) {
     <>
       <StoreDetail>
         <div className="store-image">
-          <Image fixed={image.asset.fixed} />
+          <Image fluid={image.asset.fluid} />
         </div>
         <div className="store-detail">
           <CategoryList>

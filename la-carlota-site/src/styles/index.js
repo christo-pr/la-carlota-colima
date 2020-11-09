@@ -4,15 +4,6 @@ import "normalize.css"
 import Stripes from "../assets/img/stripes.svg"
 import font from "../assets/fonts/frenchfries.woff"
 
-// Media query device mapping
-export const device = {
-  mobile: `(min-width: 320px)`,
-  tablet: `(min-width: 768px)`,
-  laptop: `(min-width: 1024px)`,
-  laptopL: `(min-width: 1440px)`,
-  desktop: `(min-width: 2560px)`,
-}
-
 /**
  * Global Styles
  */
@@ -32,11 +23,6 @@ export const GlobalStyles = createGlobalStyle`
       --white: #fff;
       --grey: #efefef;
       --blue: #1275B3;
-      --media-mobile: (min-width: 320px),
-      --media-tablet: (min-width: 768px),
-      --media-laptop: (min-width: 1024px),
-      --media-laptopL: (min-width: 1440px),
-      --media-desktop: (min-width: 2560px),
     }
 
     html {
@@ -45,7 +31,7 @@ export const GlobalStyles = createGlobalStyle`
     }
 
     body {
-      font-size: 2rem;
+      font-size: calc(22px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
     }
 
     p, li {

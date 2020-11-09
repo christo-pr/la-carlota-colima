@@ -43,8 +43,8 @@ export const StoreQuery = graphql`
     }
     image {
       asset {
-        fixed(width: 400, height: 400) {
-          ...GatsbySanityImageFixed
+        fluid(maxHeight: 600) {
+          ...GatsbySanityImageFluid
         }
       }
     }
