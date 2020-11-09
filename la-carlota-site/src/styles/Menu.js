@@ -1,22 +1,21 @@
 import styled from "styled-components"
 
+import { laptop } from "./Breakpoints"
+
 /**
  * Site Top Menu
  */
 export const Menu = styled.div`
   ul {
     display: flex;
+    flex-direction: column;
     justify-content: space-around;
     align-items: center;
     list-style: none;
 
-    @media var(--media-mobile) {
-      flex-direction: column;
-    }
-
-    @media var(--media-laptop) {
+    ${laptop(`
       flex-direction: row;
-    }
+    `)}
 
     li {
       --rotate: -2deg;
