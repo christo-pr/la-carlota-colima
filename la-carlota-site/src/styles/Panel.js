@@ -7,8 +7,8 @@ import { laptop, desktop, tablet } from "./Breakpoints"
  * Centered main panel
  */
 export const Panel = styled.div`
-  max-width: 320px;
-  min-width: 320px;
+  max-width: 95%;
+  min-width: 95%;
   background-image: url(${BackgroundPanel});
   background-position: center;
   background-size: contain;

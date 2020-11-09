@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { laptop } from "./Breakpoints"
 
 /**
  * App Grid used in category, index and all products pages
@@ -7,10 +8,17 @@ export const Grid = styled.div`
   margin-top: 5rem;
   display: grid;
   gap: 2.5rem;
-  --columns: 3;
-  grid-template-columns: repeat(var(--columns), minmax(200px, 1fr));
+  --columns: 1;
+  --col-width: 200px;
+  grid-template-columns: repeat(var(--columns), minmax(var(--col-width), 1fr));
   grid-auto-rows: 350px;
-  padding: 0 10rem;
+  padding: 0 1rem;
+
+  ${laptop(`
+    --columns: 3;
+    --col-width: 200px;
+    padding: 0 10rem;
+  `)}
 
   .grid-item-inline,
   .grid-item {
