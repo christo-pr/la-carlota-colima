@@ -39,7 +39,10 @@ export function Nav(props) {
           )}
           {categories.nodes.map(category => (
             <li key={category.id}>
-              <Link to={`/categorias/${category.slug.current}`}>
+              <Link
+                to={`/categorias/${category.slug.current}`}
+                onClick={() => setMobileOpenMenu(false)}
+              >
                 {category.name}
               </Link>
             </li>
